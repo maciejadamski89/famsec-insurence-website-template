@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Heading from "./heading";
-import Button from "./button";
+import Button from "./shared/button";
 
 const content = {
     text: {
@@ -26,25 +26,14 @@ export default function Hero() {
                 <div className="container px-4 mx-auto">
                     <div className="lg:flex justify-between items-center">
                         <div className="lg:w-5/12 mb-10 lg:mb-0">
-                            {content.text.heading && (
-                                <Heading text={content.text.heading} />
-                            )}
+                            {content.text.heading && <Heading text={content.text.heading} />}
                             {content.text.subHeading && (
-                                <h1 className="text-4xl lg:text-5xl font-bold text-heading mb-7">
-                                    {content.text.subHeading}
-                                </h1>
+                                <h1 className="text-4xl lg:text-5xl font-bold text-heading mb-7">{content.text.subHeading}</h1>
                             )}
-                            {content.text.description && (
-                                <p className="leading-relaxed text-body mb-10">
-                                    {content.text.description}
-                                </p>
-                            )}
+                            {content.text.description && <p className="leading-relaxed text-body mb-10">{content.text.description}</p>}
                             <div className="flex space-x-3">
                                 <Button variant="primary" text="Get Started" />
-                                <Button
-                                    variant="secondary"
-                                    text="How it works ?"
-                                />
+                                <Button variant="secondary" text="How it works ?" />
                             </div>
                         </div>
                         <div className="lg:w-6/12 space-y-2">

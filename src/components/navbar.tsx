@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRightIcon } from "./arrow-right-icon";
+import { ArrowRightIcon } from "./shared/arrow-right-icon";
 
 const navItems = [
     {

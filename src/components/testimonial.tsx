@@ -1,5 +1,5 @@
 import test from "node:test";
-import Button from "./button";
+import Button from "./shared/button";
 import Heading from "./heading";
 import Image from "next/image";
 
@@ -37,14 +37,7 @@ const content = {
 
 function ChatBubbleIcon() {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-4 h-4"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -61,64 +54,45 @@ export default function Testimonial() {
                 <div className="lg:flex justify-between items-center">
                     <div className="lg:w-4/12 lg:pr-24 mb-10 lg:mb-0">
                         <Heading text={content.heading.title} />
-                        <h2 className="font-bold text-2xl lg:text-4xl mb-5">
-                            {content.heading.subTitle}
-                        </h2>
-                        <p className="text-body font-relaxed mb-10">
-                            {content.heading.desc}
-                        </p>
+                        <h2 className="font-bold text-2xl lg:text-4xl mb-5">{content.heading.subTitle}</h2>
+                        <p className="text-body font-relaxed mb-10">{content.heading.desc}</p>
                         <Button text={content.heading.cta} variant="primary" />
                     </div>
                     <div className="lg:w-8/12">
                         <div className="md:flex w-full space-x-0 md:space-x-6 items-end">
                             <div className="md:w-6/12 mb-6 md:mb-0">
-                                {content.testimonials.map(
-                                    (testimonial, idx) => {
-                                        if (idx === 2) return null;
-                                        return (
-                                            <div
-                                                key={idx}
-                                                className={`bg-white p-7 rounded-lg w-full ${
-                                                    idx === 1 ? "" : "mb-6"
-                                                }`}
-                                            >
-                                                <div className="flex space-x-4 items-center mb-4">
-                                                    <div className="relative">
-                                                        <Image
-                                                            src={
-                                                                testimonial.img
-                                                            }
-                                                            alt={
-                                                                testimonial.name
-                                                            }
-                                                            width={100}
-                                                            height={100}
-                                                            className="object-cover h-14 w-14 rounded-full"
-                                                        />
-                                                        <span className="absolute -top-2 -right-2 w-7 h-7 bg-primary rounded-full flex items-center justify-center text-white">
-                                                            <ChatBubbleIcon />
-                                                        </span>
-                                                    </div>
-                                                    <div className="leading-3">
-                                                        <strong className="block text-heading text-lg">
-                                                            {testimonial.name}
-                                                        </strong>
-                                                        <span className="text-sm">
-                                                            {testimonial.title}
-                                                        </span>
-                                                    </div>
+                                {content.testimonials.map((testimonial, idx) => {
+                                    if (idx === 2) return null;
+                                    return (
+                                        <div key={idx} className={`bg-white p-7 rounded-lg w-full ${idx === 1 ? "" : "mb-6"}`}>
+                                            <div className="flex space-x-4 items-center mb-4">
+                                                <div className="relative">
+                                                    <Image
+                                                        src={testimonial.img}
+                                                        alt={testimonial.name}
+                                                        width={100}
+                                                        height={100}
+                                                        className="object-cover h-14 w-14 rounded-full"
+                                                    />
+                                                    <span className="absolute -top-2 -right-2 w-7 h-7 bg-primary rounded-full flex items-center justify-center text-white">
+                                                        <ChatBubbleIcon />
+                                                    </span>
                                                 </div>
-                                                <div>
-                                                    <p className="text-heading leading-relaxed">
-                                                        &quot;
-                                                        {testimonial.testimony}
-                                                        &quot;
-                                                    </p>
+                                                <div className="leading-3">
+                                                    <strong className="block text-heading text-lg">{testimonial.name}</strong>
+                                                    <span className="text-sm">{testimonial.title}</span>
                                                 </div>
                                             </div>
-                                        );
-                                    }
-                                )}
+                                            <div>
+                                                <p className="text-heading leading-relaxed">
+                                                    &quot;
+                                                    {testimonial.testimony}
+                                                    &quot;
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <div className="md:w-6/12">
                                 <div>
@@ -127,18 +101,11 @@ export default function Testimonial() {
                                         data-aos="fade-up"
                                         data-aos-delay={300}
                                     />
-                                    <div
-                                        className="bg-white p-7 rounded-lg w-full mb-6 aos-init aos-animate"
-                                        data-aos="fade-up"
-                                        data-aos-delay={400}
-                                    >
+                                    <div className="bg-white p-7 rounded-lg w-full mb-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay={400}>
                                         <div className="flex space-x-4 items-center mb-4">
                                             <div className="relative">
                                                 <Image
-                                                    src={
-                                                        content.testimonials[2]
-                                                            .img
-                                                    }
+                                                    src={content.testimonials[2].img}
                                                     alt="Image"
                                                     width={100}
                                                     height={100}
@@ -149,21 +116,14 @@ export default function Testimonial() {
                                                 </span>
                                             </div>
                                             <div className="leading-3">
-                                                <strong className="block text-heading text-lg">
-                                                    Davon McKenny
-                                                </strong>
-                                                <span className="text-sm">
-                                                    Customer - Seattle, WA
-                                                </span>
+                                                <strong className="block text-heading text-lg">Davon McKenny</strong>
+                                                <span className="text-sm">Customer - Seattle, WA</span>
                                             </div>
                                         </div>
                                         <div>
                                             <p className="text-heading leading-relaxed">
                                                 &quot;
-                                                {
-                                                    content.testimonials[2]
-                                                        .testimony
-                                                }
+                                                {content.testimonials[2].testimony}
                                                 &quot;
                                             </p>
                                         </div>

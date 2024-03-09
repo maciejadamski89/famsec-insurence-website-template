@@ -1,7 +1,7 @@
 import Image from "next/image";
 import NextLink from "next/link";
-import { ArrowRightIcon } from "./arrow-right-icon";
-import Link from "./link";
+import { ArrowRightIcon } from "./shared/arrow-right-icon";
+import Link from "./shared/link";
 
 const content = {
     about: {
@@ -73,8 +73,7 @@ const content = {
             street: "23 Main Street, Cityville, State, Zip Code",
         },
     },
-    copyright:
-        "Copyright 2023. Designed with 💚 by dataglit.ch. All rights reserved.",
+    copyright: "Copyright 2023. Designed with 💚 by dataglit.ch. All rights reserved.",
 };
 
 function AtSymbolIcon() {
@@ -124,16 +123,8 @@ function MapPinIcon() {
             stroke="currentColor"
             className="w-6 h-6 text-primary"
         >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
         </svg>
     );
 }
@@ -144,30 +135,20 @@ export default function Footer() {
             <div className="container px-4 mx-auto">
                 <div className="block lg:flex gap-20 mb-10">
                     <div className="w-full lg:w-4/12 mb-10 lg:mb-0">
-                        <NextLink
-                            href="/"
-                            className="mg-4 inline-block text-primary text-2xl font-bold mb-4"
-                        >
+                        <NextLink href="/" className="mg-4 inline-block text-primary text-2xl font-bold mb-4">
                             Famsec
                         </NextLink>
-                        <p className="text-body leadinig-relaxed">
-                            {content.about.desc}
-                        </p>
+                        <p className="text-body leadinig-relaxed">{content.about.desc}</p>
                     </div>
                     <div className="w-full lg:w-4/12 mb-10 lg:mb-0">
                         <div className="grid grid-cols-2 gap-10">
                             {content.links.map((link, idx) => (
                                 <div key={idx}>
-                                    <h3 className="font-semibold text-heading mb-5">
-                                        {link.heading}
-                                    </h3>
+                                    <h3 className="font-semibold text-heading mb-5">{link.heading}</h3>
                                     <ul className="p-0 m-0">
                                         {link.links.map((item, idx) => (
                                             <li key={idx} className="text-body">
-                                                <Link
-                                                    href={item.href}
-                                                    label={item.label}
-                                                />
+                                                <Link href={item.href} label={item.label} />
                                             </li>
                                         ))}
                                     </ul>
@@ -176,35 +157,25 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="w-full lg:w-4/12">
-                        <h3 className="font-semibold text-heading mb-5">
-                            {content.contact.heading}
-                        </h3>
-                        <p className="text-body leading-relaxed mb-7">
-                            {content.about.desc}
-                        </p>
+                        <h3 className="font-semibold text-heading mb-5">{content.contact.heading}</h3>
+                        <p className="text-body leading-relaxed mb-7">{content.about.desc}</p>
                         <ul>
                             <li className="flex items-start space-x-3 mb-5">
                                 <AtSymbolIcon />
                                 <div>
-                                    <span className="text-body font-medium">
-                                        {content.contact.address.email}
-                                    </span>
+                                    <span className="text-body font-medium">{content.contact.address.email}</span>
                                 </div>
                             </li>
                             <li className="flex items-start space-x-3 mb-5">
                                 <PhoneIcon />
                                 <div>
-                                    <span className="text-body font-medium">
-                                        {content.contact.address.phone}
-                                    </span>
+                                    <span className="text-body font-medium">{content.contact.address.phone}</span>
                                 </div>
                             </li>
                             <li className="flex items-start space-x-3 mb-5">
                                 <MapPinIcon />
                                 <div>
-                                    <span className="text-body font-medium">
-                                        {content.contact.address.street}
-                                    </span>
+                                    <span className="text-body font-medium">{content.contact.address.street}</span>
                                 </div>
                             </li>
                         </ul>

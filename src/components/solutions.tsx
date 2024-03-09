@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Heading from "./heading";
-import Button from "./button";
+import Button from "./shared/button";
 
 const content = {
     text: {
@@ -9,12 +9,7 @@ const content = {
         title: "From safeguarding your home with state-of-the-art alarm systems",
         desc: "From safeguarding your home with state-of-the-art alarm systems to offering reliable insurance options, we ensure that your family is protected in every aspect of life. With our Family Security Plan, you can rest easy knowing that you've taken the necessary steps to secure a brighter future for your family. Trust us to be your partner in safeguarding what matters most – your family's well-being.",
     },
-    features: [
-        "Home Fire Safety",
-        "Emergency Preparedness",
-        "Cybersecurity Solutions",
-        "Identity Theft Protection",
-    ],
+    features: ["Home Fire Safety", "Emergency Preparedness", "Cybersecurity Solutions", "Identity Theft Protection"],
     cta: {
         primary: {
             href: "#",
@@ -38,19 +33,8 @@ const content = {
 
 function CheckIcon() {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-4 h-4"
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-            />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
         </svg>
     );
 }
@@ -106,12 +90,8 @@ export default function Solutions() {
                                     </div>
                                     <div>
                                         <div className="p-4 lg:p-10 shadow-2xl rounded-lg bg-white w-full leading-5">
-                                            <strong className="block font-bold text-primary text-xl lg:text-5xl">
-                                                {content.experience.year}
-                                            </strong>
-                                            <span>
-                                                {content.experience.label}
-                                            </span>
+                                            <strong className="block font-bold text-primary text-xl lg:text-5xl">{content.experience.year}</strong>
+                                            <span>{content.experience.label}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -120,18 +100,11 @@ export default function Solutions() {
                     </div>
                     <div className="lg:w-5/12 relative z-10">
                         <Heading text={content.text.subTitle} />
-                        <h2 className="text-heading text-2xl lg:text-4xl font-bold mb-5">
-                            {content.text.title}
-                        </h2>
-                        <p className="text-body text-relaxed mb-10">
-                            {content.text.desc}
-                        </p>
+                        <h2 className="text-heading text-2xl lg:text-4xl font-bold mb-5">{content.text.title}</h2>
+                        <p className="text-body text-relaxed mb-10">{content.text.desc}</p>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4 md:gap-5 mb-10">
                             {content.features.map((feature, idx) => (
-                                <li
-                                    key={idx}
-                                    className="flex flex-grow items-center space-x-5"
-                                >
+                                <li key={idx} className="flex flex-grow items-center space-x-5">
                                     <span className="items-center w-7 h-7 rounded-full bg-primary flex items-cetner justify-center text-white">
                                         <CheckIcon />
                                     </span>

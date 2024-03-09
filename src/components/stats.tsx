@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon } from "./arrow-right-icon";
+import { ArrowRightIcon } from "./shared/arrow-right-icon";
 
 const content = {
     stats: [
@@ -19,8 +19,7 @@ const content = {
     ],
     getStarted: {
         heading: "Get started with our service?",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.",
         img: "/stats/illustration-woman.svg",
         cta: {
             href: "#",
@@ -37,13 +36,8 @@ export default function Stats() {
                     <div className="w-full lg:w-7/12 mb-20 lg:mb-0">
                         <div className="grid grid-cols-3">
                             {content.stats.map((stat, idx) => (
-                                <div
-                                    key={idx}
-                                    className="text-center lg:text-left"
-                                >
-                                    <strong className="text-primary text-4xl xl:text-[52px] font-bold block leading-tight">
-                                        {stat.number}
-                                    </strong>
+                                <div key={idx} className="text-center lg:text-left">
+                                    <strong className="text-primary text-4xl xl:text-[52px] font-bold block leading-tight">{stat.number}</strong>
                                     <span>{stat.label}</span>
                                 </div>
                             ))}
@@ -61,17 +55,9 @@ export default function Stats() {
                                 />
                             )}
 
-                            {content.getStarted.heading && (
-                                <h3 className="text-heading font-bold text-xl mb-3">
-                                    {content.getStarted.heading}
-                                </h3>
-                            )}
+                            {content.getStarted.heading && <h3 className="text-heading font-bold text-xl mb-3">{content.getStarted.heading}</h3>}
 
-                            {content.getStarted.description && (
-                                <h3 className="text-md mb-5">
-                                    {content.getStarted.description}
-                                </h3>
-                            )}
+                            {content.getStarted.description && <h3 className="text-md mb-5">{content.getStarted.description}</h3>}
 
                             {content.getStarted.cta.label && (
                                 <button>
@@ -79,9 +65,7 @@ export default function Stats() {
                                         href={content.getStarted.cta.href}
                                         className="group flex items-center py-2 duration-300 transition-all ease-in-out text-primary"
                                     >
-                                        <span className="">
-                                            {content.getStarted.cta.label}
-                                        </span>
+                                        <span className="">{content.getStarted.cta.label}</span>
                                         <span className="left-0 relative duration-300 transition-all ease-in-out opacity-0 group-hover:opacity-100 group-hover:left-2">
                                             <ArrowRightIcon />
                                         </span>
