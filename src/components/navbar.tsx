@@ -1,6 +1,10 @@
 "use client";
+
+// * import core
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
+// * import icon
 import { ArrowRightIcon } from "./shared/arrow-right-icon";
 
 const navItems = [
@@ -39,7 +43,7 @@ const XMarkIcon = () => (
 );
 
 export default function Navbar() {
-    const [navOpen, setNavOpen] = useState(false);
+    const [navigationOpen, setNavigationOpen] = useState(false);
 
     const [dimensions, setDimensions] = useState({
         height: typeof window !== "undefined" ? window.innerHeight : 0,
@@ -47,20 +51,26 @@ export default function Navbar() {
     });
 
     const mobileMenuHandler = () => {
-        setNavOpen(!navOpen);
+        setNavigationOpen(!navigationOpen);
     };
 
-    useEffect(() => {
-        const handleResize = () => {
+    const handleResize = () => {
+        if (typeof window !== "undefined") {
             setDimensions({
                 height: window.innerHeight,
                 width: window.innerWidth,
             });
-        };
-        if (dimensions.width > 1024 && navOpen) setNavOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (dimensions.width > 1024 && navigationOpen) setNavigationOpen(false);
         window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, [dimensions.width, navOpen]);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [dimensions.width, navigationOpen]);
 
     return (
         <>
@@ -97,7 +107,7 @@ export default function Navbar() {
                 </div>
             </nav>
             {/*  Mobile menu */}
-            {!!navOpen && (
+            {!!navigationOpen && (
                 <div className="">
                     <div className="h-screen w-screen z-[999] top-0 fixed bg-black/50" onClick={mobileMenuHandler}></div>
                     <div className="bg-white w-[380px] top-0 right-0 z-[999] h-screen fixed animate-slide-in-right">
