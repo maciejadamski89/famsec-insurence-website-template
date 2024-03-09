@@ -27,40 +27,18 @@ const navItems = [
 ];
 
 const BurgerIcon = () => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-8 h-8"
-    >
-        <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
     </svg>
 );
 
 const XMarkIcon = () => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-    >
-        <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-        />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
 );
 
-export default function Nav() {
+export default function Navbar() {
     const [navOpen, setNavOpen] = useState(false);
 
     const [dimensions, setDimensions] = useState({
@@ -98,9 +76,7 @@ export default function Nav() {
                                             href={item.href}
                                             className="group flex items-center py-2 duration-300 transition-all ease-in-out hover:text-primary"
                                         >
-                                            <span className="">
-                                                {item.label}
-                                            </span>
+                                            <span className="">{item.label}</span>
                                             <span className="left-0 relative duration-300 transition-all ease-in-out opacity-0 group-hover:opacity-100 group-hover:left-2">
                                                 <ArrowRightIcon />
                                             </span>
@@ -110,16 +86,10 @@ export default function Nav() {
                             </ul>
                         </div>
                         <div>
-                            <Link
-                                href="#"
-                                className="px-4 py-4 bg-primary text-white rounded-lg hidden lg:inline-block"
-                            >
+                            <Link href="#" className="px-4 py-4 bg-primary text-white rounded-lg hidden lg:inline-block">
                                 Get Started
                             </Link>
-                            <button
-                                className="lg:hidden"
-                                onClick={mobileMenuHandler}
-                            >
+                            <button className="lg:hidden" onClick={mobileMenuHandler}>
                                 <BurgerIcon />
                             </button>
                         </div>
@@ -129,16 +99,10 @@ export default function Nav() {
             {/*  Mobile menu */}
             {!!navOpen && (
                 <div className="">
-                    <div
-                        className="h-screen w-screen z-[999] top-0 fixed bg-black/50"
-                        onClick={mobileMenuHandler}
-                    ></div>
+                    <div className="h-screen w-screen z-[999] top-0 fixed bg-black/50" onClick={mobileMenuHandler}></div>
                     <div className="bg-white w-[380px] top-0 right-0 z-[999] h-screen fixed animate-slide-in-right">
                         <div className="h-14 px-10 border-b flex items-center">
-                            <button
-                                className="flex items-center space-x-1"
-                                onClick={mobileMenuHandler}
-                            >
+                            <button className="flex items-center space-x-1" onClick={mobileMenuHandler}>
                                 <XMarkIcon />
                                 <span>Close</span>
                             </button>
@@ -147,10 +111,7 @@ export default function Nav() {
                             <ul className="block mb-7">
                                 {navItems.map((item) => (
                                     <li key={item.label}>
-                                        <Link
-                                            href={item.href}
-                                            className="flex items-center py-2"
-                                        >
+                                        <Link href={item.href} className="flex items-center py-2">
                                             <span>{item.label}</span>
                                         </Link>
                                     </li>

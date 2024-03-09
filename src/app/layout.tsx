@@ -1,7 +1,14 @@
-import "./globals.css";
+//* impor core
 import type { Metadata } from "next";
+
+// * import css
+import "./globals.css";
+
+// * import fonts
 import { Inter, Noto_Sans, Lobster, Sora } from "next/font/google";
-import Nav from "../components/nav";
+
+// * components
+import Nav from "@/components/navbar";
 import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,11 +36,7 @@ const sora = Sora({
     variable: "--font-sora",
 });
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html className="h-full" lang="en">
             <body className={`flex flex-col min-h-full ${sora.className}`}>
