@@ -43,6 +43,7 @@ const XMarkIcon = () => (
 );
 
 export default function Navbar() {
+    // * states
     const [navigationOpen, setNavigationOpen] = useState(false);
 
     const [dimensions, setDimensions] = useState({
@@ -50,6 +51,7 @@ export default function Navbar() {
         width: typeof window !== "undefined" ? window.innerWidth : 0,
     });
 
+    // * handlers
     const mobileMenuHandler = () => {
         setNavigationOpen(!navigationOpen);
     };
@@ -63,6 +65,7 @@ export default function Navbar() {
         }
     };
 
+    // * effects
     useEffect(() => {
         if (dimensions.width > 1024 && navigationOpen) setNavigationOpen(false);
         window.addEventListener("resize", handleResize);
@@ -72,6 +75,7 @@ export default function Navbar() {
         };
     }, [dimensions.width, navigationOpen]);
 
+    // * render
     return (
         <>
             <nav className="py-7">
@@ -106,6 +110,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+
             {/*  Mobile menu */}
             {!!navigationOpen && (
                 <div className="">
