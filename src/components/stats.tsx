@@ -56,9 +56,7 @@ export default function Stats() {
                             )}
 
                             {content.getStarted.heading && <h3 className="text-heading font-bold text-xl mb-3">{content.getStarted.heading}</h3>}
-
                             {content.getStarted.description && <h3 className="text-md mb-5">{content.getStarted.description}</h3>}
-
                             {content.getStarted.cta.label && (
                                 <button>
                                     <Link

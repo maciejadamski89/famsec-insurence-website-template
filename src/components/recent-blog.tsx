@@ -8,38 +8,16 @@ import Image from "next/image";
 
 function ChevronLeftIcon() {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
     );
 }
 
 function ChevronRightIcon() {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
     );
 }
@@ -146,21 +124,15 @@ export default function RecentBlog() {
                 <div className="lg:flex justify-between items-center mb-10">
                     <div className="lg:w-5/12 mb-10 lg:mb-0">
                         <Heading text={contnet.heading.title} />
-                        <h2 className="text-heading text-2xl lg:text-4xl font-bold mb-5">
-                            {contnet.heading.subTitle}
-                        </h2>
-                        <p className="text-body font-relaxed">
-                            {contnet.heading.desc}
-                        </p>
+                        <h2 className="text-heading text-2xl lg:text-4xl font-bold mb-5">{contnet.heading.subTitle}</h2>
+                        <p className="text-body font-relaxed">{contnet.heading.desc}</p>
                     </div>
                     <div className="lg:w-5/12 text-left lg:text-right">
                         <div className="inline-flex ml-auto space-x-3">
                             <div
                                 onClick={prevHandler}
                                 className={`${
-                                    isBeginning === true
-                                        ? "opcaity-30 cursor-auto"
-                                        : "opacity-100 hover:bg-primary"
+                                    isBeginning === true ? "opcaity-30 cursor-auto" : "opacity-100 hover:bg-primary"
                                 } group transition-all duration-300 ease-in-out rounded-full w-12 h-12 bg-primary/10 inline-flex items-center justify-center p-2 cursor-pointer text-white`}
                             >
                                 <ChevronLeftIcon />
@@ -168,9 +140,7 @@ export default function RecentBlog() {
                             <div
                                 onClick={nextHandler}
                                 className={`${
-                                    isEnd === true
-                                        ? "opcaity-30 cursor-auto"
-                                        : "opacity-100 hover:bg-primary"
+                                    isEnd === true ? "opcaity-30 cursor-auto" : "opacity-100 hover:bg-primary"
                                 } group transition-all duration-300 ease-in-out rounded-full w-12 h-12 bg-primary/90 inline-flex items-center justify-center p-2 cursor-pointer text-white`}
                             >
                                 <ChevronRightIcon />
@@ -196,34 +166,17 @@ export default function RecentBlog() {
                     }}
                     ref={sliderRef}
                     speed={700}
-                    onSlideChange={(swiper) =>
-                        setSlideIndex(swiper.activeIndex)
-                    }
+                    onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
                     className="z-50 py-32 mb-24 relative flex items-stretch !overflow-visible before:content-[''] before:z-50 before:py-32 before:right-full before:w-screen before:absolute before:-top-5 before:-bottom-5 before:bg-light"
                 >
                     <div className="flex">
                         {contnet.posts.map((post, idx) => (
-                            <SwiperSlide
-                                key={idx}
-                                className="overflow-visible h-full"
-                            >
+                            <SwiperSlide key={idx} className="overflow-visible h-full">
                                 <div className="p-5 rounded-lg bg-white relative mt-10">
-                                    <Link
-                                        href={post.link}
-                                        className="relative -mt-10 overflow-hidden rounded-lg flex flex-col gap-y-2"
-                                    >
-                                        <Image
-                                            src={post.img}
-                                            width={782}
-                                            height={467}
-                                            alt="img1"
-                                        />
-                                        <h2 className="text-heading text-lg font-bold leading-7 my-4">
-                                            {post.title}
-                                        </h2>
-                                        <p className="text-body font-relaxed relative mb-8">
-                                            {post.desc}
-                                        </p>
+                                    <Link href={post.link} className="relative -mt-10 overflow-hidden rounded-lg flex flex-col gap-y-2">
+                                        <Image src={post.img} width={782} height={467} alt="img1" />
+                                        <h2 className="text-heading text-lg font-bold leading-7 my-4">{post.title}</h2>
+                                        <p className="text-body font-relaxed relative mb-8">{post.desc}</p>
                                         <div className="flex items-center space-x-4">
                                             <div className="flex-shrink-0">
                                                 <Image
@@ -235,12 +188,8 @@ export default function RecentBlog() {
                                                 />
                                             </div>
                                             <div className="leading-5">
-                                                <span className="text-primary">
-                                                    {post.author.name}
-                                                </span>
-                                                <span className="block text-sm">
-                                                    {post.author.title}
-                                                </span>
+                                                <span className="text-primary">{post.author.name}</span>
+                                                <span className="block text-sm">{post.author.title}</span>
                                             </div>
                                         </div>
                                     </Link>
@@ -250,19 +199,13 @@ export default function RecentBlog() {
                     </div>
                 </Swiper>
                 <div className="mx-auto flex items-center justify-center"></div>
-                <div
-                    className="mx-auto flex items-center justify-center aos-init aos-animate"
-                    data-aos="fade-up"
-                    data-aos-delay={400}
-                >
+                <div className="mx-auto flex items-center justify-center aos-init aos-animate" data-aos="fade-up" data-aos-delay={400}>
                     <a
                         className=" duration-300 transition-all ease-in-out py-3 px-6 flex border rounded-full space-x-3 items-center hover:border-gray-400"
                         href="#_"
                     >
                         To view all posts
-                        <strong className="text-primary pl-1 font-semibold">
-                            click here
-                        </strong>
+                        <strong className="text-primary pl-1 font-semibold">click here</strong>
                         <span className="text-gray-300">|</span>
                         <span className="bg-primary rounded-full w-8 h-8 flex items-center justify-center">
                             <svg

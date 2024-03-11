@@ -77,8 +77,8 @@ export default function Navbar() {
 
     // * render
     return (
-        <>
-            <nav className="py-7">
+        <nav>
+            <div className="py-7">
                 <div className="container px-4 mx-auto">
                     <div className="flex justify-between items-center">
                         <div className="text-primary font-bold">FamSec</div>
@@ -109,7 +109,7 @@ export default function Navbar() {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
 
             {/*  Mobile menu */}
             {!!navigationOpen && (
@@ -136,6 +136,6 @@ export default function Navbar() {
                     </div>
                 </div>
             )}
-        </>
+        </nav>
     );
 }

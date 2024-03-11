@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
-interface ButtonProps {
+type ButtonProps = {
     variant: "primary" | "secondary";
     text: string;
-}
+};
 
 export default function Button({ variant, text }: ButtonProps) {
     const primaryColor = "bg-primary";
@@ -15,9 +15,7 @@ export default function Button({ variant, text }: ButtonProps) {
     };
 
     const getHoverColor = () => {
-        return variant === "primary"
-            ? "hover:bg-primary/90"
-            : "hover:bg-secondary/90";
+        return variant === "primary" ? "hover:bg-primary/90" : "hover:bg-secondary/90";
     };
 
     return (

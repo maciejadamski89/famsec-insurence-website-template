@@ -1,4 +1,3 @@
-import test from "node:test";
 import Button from "./shared/button";
 import Heading from "./heading";
 import Image from "next/image";
